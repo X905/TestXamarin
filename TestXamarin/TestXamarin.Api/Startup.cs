@@ -8,6 +8,8 @@ namespace TestXamarin.Api
     using Microsoft.Extensions.Hosting;
     using Microsoft.EntityFrameworkCore;
     using Data;
+    using TestXamarin.Api.Data.Repositories;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -24,6 +26,8 @@ namespace TestXamarin.Api
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllersWithViews();
         }
 

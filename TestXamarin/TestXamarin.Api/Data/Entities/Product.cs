@@ -23,7 +23,7 @@
                     return null;
                 }
 
-                return $"https://testxamarin.azurewebsites.net{this.ImageUrl.Substring(1)}";
+                return $"https://castangel-001-site1.etempurl.com{this.ImageUrl.Substring(1)}";
 
             }
 
