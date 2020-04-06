@@ -3,9 +3,113 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:infra="clr-namespace:TestXamarin.App.Infraestructure"
+             xmlns:render="clr-namespace:TestXamarin.App.CustomRenders"
              mc:Ignorable="d"
              x:Class="TestXamarin.App.App">
     <Application.Resources>
+        <ResourceDictionary>
 
+            <Color x:Key="AbColor">#124385</Color>
+            <Color x:Key="TextColor">#ffffff</Color>
+
+            <!-- Implicit styles -->
+            <Style TargetType="{x:Type NavigationPage}">
+                <Setter Property="BarBackgroundColor"
+                    Value="{StaticResource AbColor}" />
+            </Style>
+
+            <Style TargetType="{x:Type render:CustomLabel}">
+                <Setter Property="CurvedBackgroundColor"
+                        Value="{StaticResource AbColor}"
+                    />
+                <Setter Property="FontSize"
+                        Value="13"/>
+                <Setter Property="TextColor"
+                        Value="{StaticResource TextColor}"/>
+            </Style>
+            <Style TargetType="render:CustomButton" >
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource AbColor}"
+                    />
+                <Setter Property="CornerRadius" Value="4"/>
+                <Setter Property="TextColor"
+                        Value="{StaticResource TextColor}"/>
+            </Style>
+
+            <Style x:Key="ImageProduct" TargetType="{x:Type Image}">
+                <Setter Property="Aspect" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="HeightRequest" Value="90"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            <Style x:Key="NameProductLabel" TargetType="{x:Type render:CustomLabel}">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="CurvedCornerRadius" Value="3"/>
+            </Style>
+
+            <Style x:Key="CategoryButton" TargetType="{x:Type render:CustomButton}">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+                <Setter Property="CustomBorderRadius" Value="3"/>
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Padding" Value="9"/>
+            </Style>
+            
+            <Style x:Key="PriceProductLabel" TargetType="{x:Type render:CustomLabel}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CurvedCornerRadius" Value="3"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="60"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="ButtonControlText" TargetType="{x:Type Label}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+            </Style>
+
+            <Style x:Key="IconButtonControl" TargetType="{x:Type Image}">
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HeightRequest" Value="55"/>
+            </Style>
+            <Style x:Key="IconButtonControlDetail" TargetType="{x:Type Image}">
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="Margin" Value="6"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+            
+
+            <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue</On>
+                <On Platform="Android">sans-serif</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="LightFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue-Light</On>
+                <On Platform="Android">sans-serif-light</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="MediumFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue-Medium</On>
+                <On Platform="Android">sans-serif-medium</On>
+            </OnPlatform>
+            <!--Locator-->
+            <infra:InstanceLocator x:Key="Locator" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

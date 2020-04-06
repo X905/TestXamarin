@@ -1,4 +1,6 @@
 ﻿using System;
+using TestXamarin.App.View;
+using TestXamarin.App.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +12,8 @@ namespace TestXamarin.App
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainViewModel.GetInstance().Products = new ProductsViewModel();
+            this.MainPage = new NavigationPage(new ProductsPage());
         }
 
         protected override void OnStart()

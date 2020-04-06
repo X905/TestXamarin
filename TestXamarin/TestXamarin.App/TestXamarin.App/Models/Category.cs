@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace TestXamarin.App.Models
@@ -12,5 +13,6 @@ namespace TestXamarin.App.Models
 
         [JsonProperty("nameCategory")]
         public string NameCategory { get; set; }
+        public Color ButtonBackGroundColor { get; set; }
     }
 }

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TestXamarin.App.CustomRenders"
+             mc:Ignorable="d"
+             x:Class="TestXamarin.App.View.ProductsPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             >
+   
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding Products}" >
+
+            <Grid ColumnSpacing="5">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="820"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Menu Grid-->
+                <Grid  Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="445"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="85"/>
+                    </Grid.RowDefinitions>
+                    
+
+                    <CollectionView
+                        Grid.Row="0"
+                        ItemsSource="{Binding Products}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout  Orientation="Vertical" Span="8" 
+                                             VerticalItemSpacing="8"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame  Padding="0" CornerRadius="10">
+                                        <Image Grid.Row="0" Source="{Binding ImageFullPath}" Style="{StaticResource ImageProduct}"/>
+                                    </Frame>
+                                    <local:CustomLabel Grid.Row="0" Text="{Binding NameProduct}" Style="{StaticResource NameProductLabel}"/>
+                                    <local:CustomLabel Grid.Row="1" Text="{Binding Price, StringFormat='{0:C2}'}" Style="{StaticResource PriceProductLabel}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Categories}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout  Orientation="Vertical" Span="7" 
+                                             VerticalItemSpacing="7"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <local:CustomButton Text="{Binding NameCategory}" CustomBackgroundColor="{Binding ButtonBackGroundColor}" Style="{StaticResource CategoryButton}" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <StackLayout Margin="3" Grid.Row="2" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="Cancel.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="1-void" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="Cells.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="2-option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="clock.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="3-Hold" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="iconran.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="4-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="invoice.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="5-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="replace.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="6-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="payment.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="7-Tips" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="denied.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="8-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="tag.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="9-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="levelup.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="9-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <local:CustomButton  />
+                            <Image Source="change.png" Style="{StaticResource IconButtonControl}"/>
+                            <Label Text="10-Option" Style="{StaticResource ButtonControlText}"/>
+                        </Grid>
+                    </StackLayout>
+
+
+                </Grid>
+                <!--Grid Details-->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="455"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <BoxView BackgroundColor="AliceBlue" Grid.Row="0" />
+                    <BoxView BackgroundColor="{StaticResource AbColor}" Grid.Row="1" />
+                    <StackLayout Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="280" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Auto Tip" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="End"
+                                   TextColor="White"
+                                   Margin="15"/>
+                            <Switch IsToggled="True" HorizontalOptions="End" OnColor="#99cdfb" ThumbColor="#35a0df"/>
+                            <Label 
+                                Text="$0.00" 
+                                Grid.Column="1"
+                                   HorizontalOptions="End" 
+                                   VerticalOptions="End"
+                                   TextColor="White"
+                                   Margin="15"/>
+                        </Grid>
+                    </StackLayout>
+                    <Grid Grid.Row="2">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <local:CustomButton  />
+                                <Image Source="payment.png" Style="{StaticResource IconButtonControlDetail}"/>
+                                <Label Text="1-Tips" Style="{StaticResource ButtonControlText}"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <local:CustomButton  />
+                                <Image Source="Cancel.png" Style="{StaticResource IconButtonControlDetail}"/>
+                                <Label Text="1-void" Style="{StaticResource ButtonControlText}"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <local:CustomButton  />
+                                <Image Source="Cells.png" Style="{StaticResource IconButtonControlDetail}"/>
+                                <Label Text="2-option" Style="{StaticResource ButtonControlText}"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Margin="0,3" Grid.Row="1" Orientation="Horizontal">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <local:CustomButton  />
+                                <Image Source="clock.png" Style="{StaticResource IconButtonControlDetail}"/>
+                                <Label Text="3-Hold" Style="{StaticResource ButtonControlText}"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <local:CustomButton  />
+                                <Image Source="iconran.png" Style="{StaticResource IconButtonControlDetail}"/>
+                                <Label Text="4-Option" Style="{StaticResource ButtonControlText}"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <local:CustomButton  />
+                                <Image Source="invoice.png" Style="{StaticResource IconButtonControlDetail}"/>
+                                <Label Text="5-Option" Style="{StaticResource ButtonControlText}"/>
+                            </Grid>
+                        </StackLayout>
+
+                    </Grid>
+                    
+                        
+
+                </Grid>
+            </Grid>
+        </StackLayout>
+        <!--Grid Layout-->
+    </ContentPage.Content>
+</ContentPage>
