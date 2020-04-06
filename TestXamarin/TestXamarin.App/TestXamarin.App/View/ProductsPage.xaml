@@ -45,7 +45,7 @@
                                         <RowDefinition Height="90"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Frame Padding="0" Margin="5" CornerRadius="4">
+                                    <Frame Padding="0" Margin="5" CornerRadius="6">
                                         <RelativeLayout>
                                             <Image Grid.Row="0" Source="{Binding ImageFullPath}" Style="{StaticResource ImageProduct}">
                                                 <Image.GestureRecognizers>
@@ -270,6 +270,33 @@
                                 <Label Text="5-Option" Style="{StaticResource ButtonControlText}"/>
                             </Grid>
                         </StackLayout>
+                        <Grid Margin="3" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <BoxView BackgroundColor="White" Grid.Column="1"/>
+                            <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="1"/>
+                            <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="1"/>
+                            <BoxView BackgroundColor="White" Grid.Column="0"/>
+                            <BoxView BackgroundColor="White" Grid.Row="1" Grid.Column="0"/>
+                            <BoxView BackgroundColor="White" Grid.Row="2" Grid.Column="0"/>
+
+
+                            <Label Grid.Row="0" Style="{StaticResource OrderAmountLabel}"  Text="SubTotal"/>
+                            <Label Text="Tax"  Margin="5" Style="{StaticResource OrderAmountLabel}" Grid.Row="1"></Label>
+                            <Label Text="Due"  Margin="5" Style="{StaticResource OrderAmountLabel}" Grid.Row="2"></Label>
+
+                            <Label Grid.Column="1" Grid.Row="0"  Style="{StaticResource OrderAmount}" Text="$0.00"/>
+                            <Label Grid.Column="1" Text="$0.00"  Style="{StaticResource OrderAmount}" Grid.Row="1"></Label>
+                            <Label Grid.Column="1" Text="$0.00"  Style="{StaticResource OrderAmount}" Grid.Row="2"></Label>
+                                
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
