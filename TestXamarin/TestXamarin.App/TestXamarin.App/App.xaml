@@ -20,9 +20,7 @@
             </Style>
 
             <Style TargetType="{x:Type render:CustomLabel}">
-                <Setter Property="CurvedBackgroundColor"
-                        Value="{StaticResource AbColor}"
-                    />
+                
                 <Setter Property="FontSize"
                         Value="13"/>
                 <Setter Property="TextColor"
@@ -39,17 +37,18 @@
 
             <Style x:Key="ImageProduct" TargetType="{x:Type Image}">
                 <Setter Property="Aspect" Value="Fill"/>
-                <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HeightRequest" Value="100"/>
                 <Setter Property="WidthRequest" Value="100"/>
-                <Setter Property="HeightRequest" Value="90"/>
                 <Setter Property="Margin" Value="0"/>
             </Style>
             <Style x:Key="NameProductLabel" TargetType="{x:Type render:CustomLabel}">
                 <Setter Property="Padding" Value="0"/>
                 <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="10"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="CurvedCornerRadius" Value="3"/>
             </Style>
 
             <Style x:Key="CategoryButton" TargetType="{x:Type render:CustomButton}">
@@ -68,6 +67,9 @@
                 <Setter Property="HeightRequest" Value="30"/>
                 <Setter Property="WidthRequest" Value="60"/>
                 <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="CurvedBackgroundColor"
+                        Value="{StaticResource AbColor}"
+                    />
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>

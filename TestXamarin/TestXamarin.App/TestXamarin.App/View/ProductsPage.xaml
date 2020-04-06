@@ -21,7 +21,7 @@
                 <!--Menu Grid-->
                 <Grid  Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="445"/>
+                        <RowDefinition Height="465"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="85"/>
                     </Grid.RowDefinitions>
@@ -38,17 +38,25 @@
                             <DataTemplate>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="90"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Frame  Padding="0" CornerRadius="10">
-                                        <Image Grid.Row="0" Source="{Binding ImageFullPath}" Style="{StaticResource ImageProduct}"/>
+                                    <Frame Padding="0" Margin="5" CornerRadius="4">
+                                        <RelativeLayout>
+                                            <Image Grid.Row="0" Source="{Binding ImageFullPath}" Style="{StaticResource ImageProduct}">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding ProductSelected}" CommandParameter="{Binding}"/>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                            <StackLayout TranslationY="66" Opacity="0.6" WidthRequest="96" BackgroundColor="{StaticResource AbColor}">
+                                                <local:CustomLabel Grid.Row="0"  Text="{Binding NameProduct}" Style="{StaticResource NameProductLabel}"/>
+                                            </StackLayout>
+                                        </RelativeLayout>
                                     </Frame>
-                                    <local:CustomLabel Grid.Row="0" Text="{Binding NameProduct}" Style="{StaticResource NameProductLabel}"/>
                                     <local:CustomLabel Grid.Row="1" Text="{Binding Price, StringFormat='{0:C2}'}" Style="{StaticResource PriceProductLabel}"/>
                                 </Grid>
                             </DataTemplate>
@@ -56,7 +64,7 @@
                     </CollectionView>
                     <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Categories}">
-                        <CollectionView.ItemsLayout>
+                        <CollectionView.ItemsLayout>    
                             <GridItemsLayout  Orientation="Vertical" Span="7" 
                                              VerticalItemSpacing="7"/>
                         </CollectionView.ItemsLayout>
@@ -156,8 +164,6 @@
                             <Label Text="10-Option" Style="{StaticResource ButtonControlText}"/>
                         </Grid>
                     </StackLayout>
-
-
                 </Grid>
                 <!--Grid Details-->
                 <Grid Grid.Column="1">
@@ -167,6 +173,19 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <BoxView BackgroundColor="AliceBlue" Grid.Row="0" />
+                    <Grid RowSpacing="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Server:" TextColor="Black" 
+                               HorizontalOptions="Fill"
+                               VerticalOptions="End"/>
+                        <Label Grid.Row="1" VerticalOptions="Center" Text="Order:" TextColor="Black"/>
+                        <Label Grid.Row="1" Text="Station:" VerticalOptions="Center" TextColor="Black" HorizontalOptions="Center"/>
+                    </Grid>
+                    
                     <BoxView BackgroundColor="{StaticResource AbColor}" Grid.Row="1" />
                     <StackLayout Grid.Row="1">
                         <Grid>
@@ -251,11 +270,7 @@
                                 <Label Text="5-Option" Style="{StaticResource ButtonControlText}"/>
                             </Grid>
                         </StackLayout>
-
                     </Grid>
-                    
-                        
-
                 </Grid>
             </Grid>
         </StackLayout>
